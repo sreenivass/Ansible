@@ -3,7 +3,11 @@
     yourname: srinivas
     age: 27
     emailaddress: ssakali@deloitte.com
+<<<<<<< HEAD
     companyname: Deloitte
+=======
+    mcompanyname: Deloitte
+>>>>>>> 293bdf5a661b3f50c5bebbe22ab20c7228644eef
 
   vars_prompt:
     - name: username
