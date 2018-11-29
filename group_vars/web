@@ -1,0 +1,5 @@
+servername: webservers
+packagename: httpd
+packagestate: present
+servicename: httpd
+servicestate: started

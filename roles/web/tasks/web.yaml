@@ -1,0 +1,9 @@
+---
+  - name: Ansible Basic Variable Example
+    yum:
+      name: httpd
+      state: present
+  - name: start service
+    service:
+      name: httpd
+      state: started

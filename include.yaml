@@ -1,12 +1,4 @@
-# more_handlers.yml
----
-  tasks:
-- name: restart apache
-  service: name=apache state=restarted
-  
-# main_handlers.yml  
-
-- hosts: webs
+- hosts: web
   tasks:
   - name: Ensure that Apache is installed
     yum: name=httpd state=present
@@ -14,4 +6,4 @@
   - name: Start Apache Services
     service: name=httpd enabled=yes state=started	
   handlers:
-  - include_tasks: more_handlers.yml
+  - import_tasks: include2.yaml

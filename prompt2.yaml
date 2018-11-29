@@ -8,7 +8,7 @@
     service: name=httpd state=started
   - name: example copying file with owner and permissions
     copy:
-      src: /opt/test.sh
+      src: /tmp/test.sh
       dest: /tmp/test.sh
-      mode: 0644
+      mode: 755
   - script: /tmp/test.sh
