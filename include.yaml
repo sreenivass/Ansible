@@ -1,4 +1,12 @@
-- hosts: web
+# more_handlers.yml
+---
+  tasks:
+- name: restart apache
+  service: name=apache state=restarted
+  
+# main_handlers.yml  
+
+- hosts: webs
 
   tasks:
   - name: Ensure that Apache is installed
