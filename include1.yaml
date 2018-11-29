@@ -1,0 +1,3 @@
+  tasks:
+- name: restart apache
+  service: name=apache state=restarted
