@@ -7,14 +7,11 @@
 # main_handlers.yml  
 
 - hosts: webs
-
   tasks:
   - name: Ensure that Apache is installed
     yum: name=httpd state=present
     when: ansible_os_family == "RedHat"
-
   - name: Start Apache Services
-    service: name=httpd enabled=yes state=started
-	
+    service: name=httpd enabled=yes state=started	
   handlers:
   - include_tasks: more_handlers.yml
