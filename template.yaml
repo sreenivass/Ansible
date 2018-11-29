@@ -1,0 +1,28 @@
+- hosts: web
+  vars:
+    yourname: srinivas
+    age: 27
+    emailaddress: ssakali@deloitte.com
+    mcompanyname: Deloitte
+
+  vars_prompt:
+    - name: username
+      prompt:  What is your name?  What is your Quest?  What is your fav color?
+
+  tasks:
+  - name: Ensure that Apache is installed
+    yum: name=httpd state=present
+    when: ansible_os_family == "RedHat"
+
+  - name: Start Apache Services
+    service: name=httpd enabled=yes state=started
+
+    notify:
+      - Restart Apache
+
+  - name: Copy Site Files
+    template: src=templates/index.j2 dest=/var/www/html/index.html
+
+  handlers:
+     - name: Restart Apache
+       service: name=httpd state=restarted
