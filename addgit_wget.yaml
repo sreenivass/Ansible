@@ -1,0 +1,4 @@
+- hosts: web
+  tasks:	
+  - name: install wget and git Services
+    yum: name=wget,git state=present

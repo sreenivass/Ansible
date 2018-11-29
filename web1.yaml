@@ -1,0 +1,10 @@
+- hosts: web
+  tasks:
+  - name: Ansible Basic Variable Example
+    yum:
+      name: "{{ packagename }}"
+      state: "{{ packagestate }}"
+  - name: start service
+    service:
+      name: "{{ servicename }}"
+      state: "{{ servicestate }}"

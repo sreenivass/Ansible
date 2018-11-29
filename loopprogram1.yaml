@@ -1,0 +1,7 @@
+- hosts: web
+  tasks:
+   - name: Install common software requirements
+     yum: name={{ item }} state=present
+     with_items:
+      - git
+      - vim

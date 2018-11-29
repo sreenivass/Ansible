@@ -1,0 +1,17 @@
+- hosts: web
+  tasks:
+  - name: Crete Deploy group
+    group: name=deploy state=present
+  - name: Crete group group and add user deploy-user
+    group: name=group state=present
+  - name: Crete group group and add user deploy-user
+    user: name=deploy-user group=group shell=/bin/bash state=present
+  - name: Start Apache Services and add index.file
+    service: name=httpd enabled=yes state=started
+  - name: Start Apache Services
+    blockinfile: create=yes dest=/var/www/html/index.html block=srinivas
+  - name: install wget and git Services
+    yum: name=wget,git state=present
+  - name: install wget  Services
+    git: repo=https://github.com/scmgalaxy/ansible-role-template clone=yes dest=/opt/srinivas
+

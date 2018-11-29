@@ -1,0 +1,8 @@
+- hosts: web
+  tasks:
+  - name: Ensure that Apache is installed
+    yum: name=httpd state=present
+  - name: Start Apache Services
+    service: name=httpd enabled=yes state=started
+  - name: Disable firewall service
+    service: name=firewalld state=stopped

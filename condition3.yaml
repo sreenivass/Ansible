@@ -1,0 +1,7 @@
+- hosts: web
+  vars:
+  tasks:
+    - shell: echo "I've got '{{ foo }}' and am not afraid to use it!"
+  when: foo is defined
+    - fail: msg= "Bailing out.This requires 'bar'"
+  when: bar is undefined

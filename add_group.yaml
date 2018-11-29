@@ -1,0 +1,4 @@
+- hosts: web
+  tasks:
+  - name: Crete Deploy group
+    group: name=deploy state=present

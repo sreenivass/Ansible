@@ -1,0 +1,6 @@
+- hosts: web
+  tasks:
+  - name: Crete group group and add user deploy-user
+    group: name=group state=present
+  - name: creat user
+    user: name=deploy-user group=group shell=/bin/bash state=present

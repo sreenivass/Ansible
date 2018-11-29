@@ -1,0 +1,6 @@
+- hosts: web
+  tasks:
+  -  name: touch file in Debian flavored systems
+     command: touch /opt/sriivas.txt
+     when: (ansible_distribution == "CentOS" and ansible_distribution_major_version == "7") or
+          (ansible_distribution == "Debian" and ansible_distribution_major_version == "7")

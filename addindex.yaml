@@ -1,0 +1,4 @@
+- hosts: web
+  tasks:	
+  - name: add index file
+    blockinfile: create=yes dest=/var/www/html/index.html block=srinivas
