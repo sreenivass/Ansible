@@ -3,7 +3,7 @@
   - name: Ansible register with_items example
     shell: "find *.txt"
     args:
-      chdir: "/tmp/e"
+      chdir: "/tmp/"
     register: with_output
 
   - shell: "cp {{ item }} {{item}}_bkp"
