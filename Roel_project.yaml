@@ -1,0 +1,23 @@
+---
+  tasks:
+  - name: Install httpd
+    yum:
+      name: "{{ packagename }}"
+      state: "{{ packagestate }}"
+    when: ansible_os_family == "RedHat"
+    vars_prompt:
+    - name: lastname
+      prompt:  What is your last name?
+  - name: start service
+    service:
+      name: "{{ servicename }}"
+      state: "{{ servicestate }}"
+  - name: Copy Site Files
+    template: src=templates/index.j2 dest=/var/www/html/index.html
+  - name: Copy config files 
+    template: src=templates/httpd.j2 dest=/var/www/html/httpd.conf
+    notify:
+      - Restart Apache
+    handlers:
+  - name: Restart Apache
+       service: name=httpd state=restarted
