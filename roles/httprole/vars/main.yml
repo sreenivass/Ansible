@@ -1,0 +1,7 @@
+---
+# vars file for httprole
+yourname: srinivas
+age: 27
+emailaddress: ssakali@deloitte.com
+companyname: Deloitte
+http_port: 8080

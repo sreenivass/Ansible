@@ -1,3 +1,8 @@
 - hosts: web
+  vars_prompt:
+       - name: "lastname"
+         prompt: What is your last name?
   roles:
-    - web
+    - httprole
+  roles:
+    - srsp.oracle-java

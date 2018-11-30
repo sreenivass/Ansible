@@ -1,0 +1,4 @@
+---
+# handlers file for httprole
+- name: Restart Apache
+  service: name="{{ servicename }}" state=restarted

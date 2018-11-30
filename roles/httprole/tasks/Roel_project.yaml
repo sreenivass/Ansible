@@ -1,0 +1,16 @@
+---
+  - name: Install httpd
+    yum:
+      name: "{{ packagename }}"
+      state: "{{ packagestate }}"
+    when: ansible_os_family == "RedHat"
+  - name: start service
+    service:
+      name: "{{ servicename }}"
+      state: "{{ servicestate }}"
+  - name: Copy Site Files
+    template: src=index.j2 dest=/var/www/html/index.html
+  - name: Copy config files
+    template: src=httpd.j2 dest=/etc/httpd/conf/httpd.conf
+    notify:
+      - Restart Apache
